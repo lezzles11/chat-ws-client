@@ -19,7 +19,7 @@ import { bindActionCreators } from 'redux';
 class App extends Component {
   constructor() {
     super();
-
+	// Asking for the user to enter their username
     this.state = {
       modalOpen: true,
       usernameInput: ''
@@ -27,6 +27,7 @@ class App extends Component {
   }
 
   render() {
+	  // Choose your name 
     const modalActions = [
       <RaisedButton
         label="Choose"
@@ -44,6 +45,7 @@ class App extends Component {
     return (
       <MuiThemeProvider>
         <div className="App">
+		{/* Initial user list */}
           <UserList users={this.state.users} />
           {chat}
           <Dialog
@@ -70,7 +72,8 @@ class App extends Component {
     this.socket = Singleton.getInstance();
 
     this.socket.onmessage = (response) => {
-      let message = JSON.parse(response.data);
+	  let message = JSON.parse(response.data);
+	  console.log(message)
       let users;
 
       switch (message.type) {

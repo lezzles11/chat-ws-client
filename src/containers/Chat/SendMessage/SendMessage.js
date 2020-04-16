@@ -53,11 +53,12 @@ class SendMessage extends Component {
             this.sendMessage();
         }
     }
-
     sendMessage() {
         const socket = Singleton.getInstance();
-        let messageDto = JSON.stringify({ user: this.props.thisUser, data: this.state.inputValue, type: MessageType.TEXT_MESSAGE });
-        socket.send(messageDto);
+		
+		let messageDto = JSON.stringify({ user: this.props.thisUser, data: this.state.inputValue, type: MessageType.TEXT_MESSAGE });
+		
+		socket.send(messageDto);
         this.setState({ inputValue: '' })
     }
 
